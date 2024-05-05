@@ -20,6 +20,8 @@ public class RadarMakerImpl implements RadarMaker {
             case HUMIDITY:
                 radar = new HumidityRadar(uid, name, latitude, longitude);
                 break;
+            default:
+                //исключение
         }
         return radar;
     }
