@@ -1,16 +1,15 @@
-package main.java.org.weatherstation.radar.service.implement;
+package main.java.org.weatherstation.radar.model;
 
-import main.java.org.weatherstation.radar.model.*;
-import main.java.org.weatherstation.radar.service.interfaces.RadarMaker;
+import main.java.org.weatherstation.dimension.model.TypeOfDimension;
 
 import static main.java.org.weatherstation.radar.service.util.UidGenerator.getUid;
-public class RadarMakerImpl implements RadarMaker {
 
-    @Override
-    public Radar makeRadar(String name, String locationName, double latitude, double longitude, RadarType radarType) {
+public class RadarMaker {
+
+    public static Radar makeRadar(String name, String locationName, double latitude, double longitude, TypeOfDimension typeOfDimension) {
         String uid = getUid(locationName);
         Radar radar = null;
-        switch (radarType) {
+        switch (typeOfDimension) {
             case TEMPERATURE:
                 radar = new TemperatureRadar(uid, name, latitude, longitude);
                 break;
@@ -21,7 +20,9 @@ public class RadarMakerImpl implements RadarMaker {
                 radar = new HumidityRadar(uid, name, latitude, longitude);
                 break;
             default:
-                //исключение
+                throw new IllegalArgumentException("Неизвестный тип измерения");
+
+
         }
         return radar;
     }
