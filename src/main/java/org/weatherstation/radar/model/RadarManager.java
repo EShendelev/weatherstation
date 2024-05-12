@@ -2,9 +2,7 @@ package main.java.org.weatherstation.radar.model;
 
 import main.java.org.weatherstation.dimension.model.TypeOfDimension;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class RadarManager {

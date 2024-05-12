@@ -5,17 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78e3e78a-682e-4be7-a241-de9c7aa9d9f3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/dimension/model/DimensionManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/model/RadarManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/dimension/model/Dimension.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/dimension/model/Dimension.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/model/HumidityRadar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/model/HumidityRadar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/dimension/model/DimensionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/dimension/model/DimensionManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/model/Radar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/model/Radar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/model/RadarType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/dimension/model/TypeOfDimension.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/model/TemperatureRadar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/model/TemperatureRadar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/model/WindRadar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/model/WindRadar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/service/implement/RadarMakerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/model/RadarMaker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/service/interfaces/RadarMaker.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/model/RadarManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/model/RadarManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

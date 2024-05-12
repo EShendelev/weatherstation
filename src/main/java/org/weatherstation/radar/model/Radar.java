@@ -32,7 +32,7 @@ public abstract class Radar {
     public void getDimension() {
         //возможно нужно сделать метод, который снимает текущее значение радара. Т.к. это измерительный прибор
         //и снимает значения в реальном времени. В данный момент пренебрежем этим.
-        Dimension dimension = new Dimension(value);
+        Dimension dimension = new Dimension(uid, value);
         //в журнал должен записывать сам менеджер
         DimensionManager.writeDimension(typeOfDimension, dimension);
     }
