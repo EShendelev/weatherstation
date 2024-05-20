@@ -20,9 +20,7 @@ public class RadarMaker {
                 radar = new HumidityRadar(uid, name, latitude, longitude);
                 break;
             default:
-                throw new IllegalArgumentException("Неизвестный тип измерения");
-
-
+                throw new IllegalArgumentException("Unknown dimension type");
         }
         return radar;
     }

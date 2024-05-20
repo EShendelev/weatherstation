@@ -11,8 +11,4 @@ public class WindRadar extends Radar{
     }
 
 
-    @Override
-    public void getDimension() {
-
-    }
 }

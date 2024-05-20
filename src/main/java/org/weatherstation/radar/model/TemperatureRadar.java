@@ -8,10 +8,4 @@ public class TemperatureRadar extends Radar {
         super(uid, name, latitude, longitude);
         typeOfDimension = TypeOfDimension.TEMPERATURE;
     }
-
-
-    @Override
-    public void getDimension() {
-
-    }
 }

@@ -7,7 +7,7 @@ import java.time.LocalDate;
 public class Dimension {
     private String radarUid;
     private long id;
-    private LocalDate date;
+    private final LocalDate date;
     private double value;
 
     public Dimension(String radarUid, double value) {
@@ -20,5 +20,9 @@ public class Dimension {
 
     public String getRadarUid() {
         return radarUid;
+    }
+
+    public LocalDate getDate() {
+        return date;
     }
 }
