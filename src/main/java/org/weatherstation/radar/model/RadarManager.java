@@ -1,6 +1,7 @@
 package main.java.org.weatherstation.radar.model;
 
 import main.java.org.weatherstation.dimension.model.TypeOfDimension;
+import main.java.org.weatherstation.radar.service.util.RadarMaker;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,7 +13,8 @@ public class RadarManager {
         return new HashMap<>(radarJournal);
     }
 
-    public static void writeRadar(TypeOfDimension typeOfDimension, Radar radar) {
+    public void addRadar(String name, String prefix, double latitude, double longitude, TypeOfDimension typeOfDimension) {
+        Radar radar = RadarMaker.makeRadar(name, prefix, latitude, longitude, typeOfDimension);
         Map<String, Radar> radarList = radarJournal.getOrDefault(typeOfDimension, new HashMap<>());
         String uid = radar.getUid();
         radarList.put(uid, radar);
