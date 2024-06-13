@@ -12,7 +12,7 @@ public class RadarMaker {
 
     public static Radar makeRadar(String name, String prefix, double latitude, double longitude, TypeOfDimension typeOfDimension) {
         String uid = getUid(prefix);
-        Radar radar = null;
+        Radar radar;
         switch (typeOfDimension) {
             case TEMPERATURE:
                 radar = new TemperatureRadar(uid, name, latitude, longitude);

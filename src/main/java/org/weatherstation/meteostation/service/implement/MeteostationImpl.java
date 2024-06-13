@@ -1,7 +1,7 @@
 package main.java.org.weatherstation.meteostation.service.implement;
 
 import main.java.org.weatherstation.dimension.model.Dimension;
-import main.java.org.weatherstation.dimension.model.DimensionManager;
+import main.java.org.weatherstation.dimension.service.DimensionManager;
 import main.java.org.weatherstation.dimension.model.TypeOfDimension;
 import main.java.org.weatherstation.forecast.model.Forecast;
 import main.java.org.weatherstation.meteostation.service.interfaces.Meteostation;

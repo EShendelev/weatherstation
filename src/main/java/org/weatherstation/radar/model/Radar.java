@@ -20,7 +20,7 @@ public abstract class Radar {
     private double longitude;
     private boolean isServiceable;
     private double value;
-    //радар хранит в себе список своих измерений
+    //радар хранит в себе список своих измерений - снести, менеджер хранит записи с радаров
     private final Map<LocalDate, List<Dimension>> dimensionList;
 
     protected TypeOfDimension typeOfDimension;
@@ -61,4 +61,7 @@ public abstract class Radar {
         }
     }
 
+    public void setServiceable(boolean serviceable) {
+        isServiceable = serviceable;
+    }
 }

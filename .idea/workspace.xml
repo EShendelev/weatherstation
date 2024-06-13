@@ -5,12 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78e3e78a-682e-4be7-a241-de9c7aa9d9f3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/exceptions/AlreadyExistRadarException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/meteostation/model/Meteostation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/meteostation/service/interfaces/Meteostation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/meteostation/service/interfaces/MeteostationManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/model/RadarMaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/model/RadarMaker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/service/util/UidGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/service/util/UidGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Диаграмма без названия.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/classDiagram.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/dimension/model/DimensionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/dimension/service/DimensionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/forecast/service/interfaces/ForecastMaker.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/meteostation/service/implement/MeteostationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/meteostation/service/implement/MeteostationImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/model/Radar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/model/Radar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/model/RadarManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/model/RadarManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/service/util/RadarMaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/service/util/RadarMaker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +32,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://C:/Program Files/Amazon Corretto/jdk11.0.22_7/lib/src.zip!/java.base/java/util/List.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
