@@ -5,15 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78e3e78a-682e-4be7-a241-de9c7aa9d9f3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/exceptions/AlreadyExistRadarException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/dimension/model/DimensionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/dimension/service/DimensionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/forecast/service/interfaces/ForecastMaker.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/dimension/model/Dimension.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/dimension/model/Dimension.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/dimension/service/DimensionManager.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/meteostation/service/implement/MeteostationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/meteostation/service/implement/MeteostationImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/meteostation/service/interfaces/Meteostation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/meteostation/service/interfaces/Meteostation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/model/Radar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/model/Radar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/model/RadarManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/model/RadarManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/service/util/RadarMaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/service/util/RadarMaker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +63,7 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;A:/Java/weatherstation&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/myJava/weatherstation&quot;,
     &quot;onboarding.tips.debug.path&quot;: &quot;A:/Java/meteostation/src/main/java/org/meteostation/Main.java&quot;,
     &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,

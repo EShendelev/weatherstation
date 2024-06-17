@@ -10,16 +10,11 @@ public class Dimension {
     private final LocalDate date;
     private double value;
 
-    public Dimension(String radarUid, double value) {
+    public Dimension(String radarUid, LocalDate date, double value) {
         this.radarUid = radarUid;
         id = IdGenerator.getId();
-        date = LocalDate.now();
+        this.date = date;
         this.value = value;
-
-    }
-
-    public String getRadarUid() {
-        return radarUid;
     }
 
     public LocalDate getDate() {

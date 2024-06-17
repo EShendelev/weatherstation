@@ -1,14 +1,12 @@
 package main.java.org.weatherstation.radar.model;
 
 
+
 import main.java.org.weatherstation.dimension.model.Dimension;
 import main.java.org.weatherstation.dimension.model.TypeOfDimension;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import main.java.org.weatherstation.radar.exceptions.EmptyDimensionListException;
 import main.java.org.weatherstation.radar.exceptions.NotServiceableRadarException;
@@ -19,7 +17,6 @@ public abstract class Radar {
     private double latitude;
     private double longitude;
     private boolean isServiceable;
-    private double value;
     //радар хранит в себе список своих измерений - снести, менеджер хранит записи с радаров
     private final Map<LocalDate, List<Dimension>> dimensionList;
 
@@ -34,15 +31,23 @@ public abstract class Radar {
         dimensionList = new HashMap<>();
     }
 
+    public List<Dimension> getAllRadarDimension() {
+        List<Dimension> dimensions = new ArrayList<>();
 
-    public void makeDimension() {
-        //возможно нужно сделать метод, который снимает текущее значение радара. Т.к. это измерительный прибор
-        //и снимает значения в реальном времени. В данный момент пренебрежем этим.
-        Dimension dimension = new Dimension(uid, value);
-        LocalDate dimensionDate = dimension.getDate();
-        List<Dimension> dimensions = dimensionList.getOrDefault(dimensionDate, new ArrayList<>());
+        for (LocalDate date : dimensionList.keySet()) {
+            dimensions.addAll(dimensionList.get(date));
+        }
+
+        dimensions.sort(Comparator.comparing(Dimension::getDate));
+        return dimensions;
+    }
+
+
+    public void makeDimension(LocalDate date, double value) {
+        Dimension dimension = new Dimension(uid, date, value);
+        List<Dimension> dimensions = dimensionList.getOrDefault(date, new ArrayList<>());
         dimensions.add(dimension);
-        dimensionList.put(dimensionDate, dimensions);
+        dimensionList.put(date, dimensions);
     }
 
 
@@ -50,18 +55,13 @@ public abstract class Radar {
         return uid;
     }
 
-    public Map<LocalDate, List<Dimension>> getDimensionList() {
-        if (!isServiceable) {
-            throw new NotServiceableRadarException("Radar "+ uid + " " + name + " is not serviceable");
-        }
-        if (!dimensionList.isEmpty()) {
-            return new HashMap<>(dimensionList);
-        } else {
-            throw new EmptyDimensionListException("There are not dimensions on radar " + uid + " " + name);
-        }
+    public boolean isServiceable() {
+        return isServiceable;
     }
 
     public void setServiceable(boolean serviceable) {
         isServiceable = serviceable;
     }
+
+
 }
