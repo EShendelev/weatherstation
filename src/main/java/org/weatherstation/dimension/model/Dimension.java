@@ -20,4 +20,8 @@ public class Dimension {
     public LocalDate getDate() {
         return date;
     }
+
+    public Double getValue() {
+        return value;
+    }
 }

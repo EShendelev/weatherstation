@@ -7,13 +7,14 @@ import main.java.org.weatherstation.radar.exceptions.NotServiceableRadarExceptio
 import main.java.org.weatherstation.radar.service.util.RadarMaker;
 
 import java.time.LocalDate;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import static main.java.org.weatherstation.radar.storage.RadarStorage.*;
 
 public class RadarManager {
-    private final Map<TypeOfDimension, String> radarJournalByType = new HashMap<>();
-    private final Map<String, Radar> radarList = new HashMap<>();
-
-    private final List<String> faultyRadarsIds = new ArrayList<>();
 
     public Map<String, Radar> getAllRadars() {
         return new HashMap<>(radarList);
@@ -36,29 +37,28 @@ public class RadarManager {
     }
 
 
-
     public List<Radar> getAllFaultyRadars() {
         List<Radar> radars = new ArrayList<>();
-        for (String s : faultyRadarsIds) {
+        for (String s : faultyRadarIds) {
             radars.add(radarList.get(s));
         }
         return radars;
     }
 
     public List<String> getFaultyRadarsIds() {
-        return new ArrayList<>(faultyRadarsIds);
+        return new ArrayList<>(faultyRadarIds);
     }
 
     public void markRadarAsFault(String uid) {
         Radar radar = radarList.get(uid);
         radar.setServiceable(false);
-        faultyRadarsIds.add(uid);
+        faultyRadarIds.add(uid);
     }
 
     public void markRadarAsServiceable(String uid) {
         Radar radar = radarList.get(uid);
         radar.setServiceable(true);
-        faultyRadarsIds.remove(uid);
+        faultyRadarIds.remove(uid);
     }
 
 
