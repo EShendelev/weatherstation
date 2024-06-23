@@ -9,7 +9,16 @@ import java.util.List;
 import java.util.Map;
 
 public class RadarStorage {
-    public static Map<TypeOfDimension, String> radarJournalByType = new HashMap<>();
+    /**
+     * radarJournalByType - хранит все UID радоров с разделением по типу измерений
+     */
+    public static Map<TypeOfDimension, List<String>> radarJournalByType = new HashMap<>();
+    /**
+     * radarList - хранит объекты радаров по UID
+     */
     public static Map<String, Radar> radarList = new HashMap<>();
+    /**
+     * faultyRadarIds - хранит список UID неисправных радаров
+     */
     public static List<String> faultyRadarIds = new ArrayList<>();
 }

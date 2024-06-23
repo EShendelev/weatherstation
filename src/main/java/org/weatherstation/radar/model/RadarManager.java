@@ -68,7 +68,9 @@ public class RadarManager {
         if (radarList.containsKey(uid)) {
             throw new AlreadyExistRadarException("Radar with UID " + uid + " already exists");
         }
+        List<String> uids = radarJournalByType.getOrDefault(typeOfDimension, new ArrayList<>());
+        uids.add(uid);
         radarList.put(uid, radar);
-        radarJournalByType.put(typeOfDimension, uid);
+        radarJournalByType.put(typeOfDimension, uids);
     }
 }

@@ -82,6 +82,7 @@ public abstract class Radar {
         result.put(isAccurate, averageValue);
         return result;
     }
+
     private List<Dimension> getDimensionListForDay(LocalDate date) {
         return new ArrayList<>(dimensionList.get(date));
     }

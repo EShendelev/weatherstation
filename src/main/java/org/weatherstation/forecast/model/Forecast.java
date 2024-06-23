@@ -7,7 +7,6 @@ public class Forecast {
     private boolean isAccurate;
 
     /**
-     *
      * @param temperature
      * @param humidity
      * @param wind
