@@ -62,8 +62,8 @@ public class RadarManager {
     }
 
 
-    public void addRadar(String name, String prefix, double latitude, double longitude, TypeOfDimension typeOfDimension) {
-        Radar radar = RadarMaker.makeRadar(name, prefix, latitude, longitude, typeOfDimension);
+    public void addRadar(String prefix, double latitude, double longitude, TypeOfDimension typeOfDimension) {
+        Radar radar = RadarMaker.makeRadar(prefix, latitude, longitude, typeOfDimension);
         String uid = radar.getUid();
         if (radarList.containsKey(uid)) {
             throw new AlreadyExistRadarException("Radar with UID " + uid + " already exists");

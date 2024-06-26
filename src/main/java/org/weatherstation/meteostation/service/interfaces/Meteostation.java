@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface Meteostation {
 
-    void addRadar(String name, String prefix, double latitude, double longitude, TypeOfDimension typeOfDimension);
+    void addRadar(String prefix, double latitude, double longitude, TypeOfDimension typeOfDimension);
 
     void addDimension(String radarUid, LocalDate date, double value);
 

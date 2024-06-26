@@ -13,7 +13,6 @@ import main.java.org.weatherstation.radar.exceptions.NotServiceableRadarExceptio
 
 public abstract class Radar {
     private String uid;
-    private String name;
     private double latitude;
     private double longitude;
     private boolean isServiceable;
@@ -22,9 +21,8 @@ public abstract class Radar {
 
     protected TypeOfDimension typeOfDimension;
 
-    public Radar(String uid, String name, double latitude, double longitude) {
+    public Radar(String uid, double latitude, double longitude) {
         this.uid = uid;
-        this.name = name;
         this.latitude = latitude;
         this.longitude = longitude;
         isServiceable = true;
@@ -45,9 +43,9 @@ public abstract class Radar {
     public void makeDimension(LocalDate date, double value) {
         Dimension dimension = new Dimension(uid, date, value);
         List<Dimension> dimensions = dimensionList.getOrDefault(date, new ArrayList<>());
-        dimensions.add(dimension);
-        dimensionList.put(date, dimensions);
-    }
+          dimensions.add(dimension);
+          dimensionList.put(date, dimensions);
+                }
 
     private List<Dimension> getFiveDaysListDimensionForForecast(LocalDate date) {
         List<Dimension> dimensions = new ArrayList<>();
@@ -97,5 +95,22 @@ public abstract class Radar {
 
     public void setServiceable(boolean serviceable) {
         isServiceable = serviceable;
+    }
+
+
+    public TypeOfDimension getDimensionType() {
+        return typeOfDimension;
+    }
+
+    @Override
+    public String toString() {
+        return "Radar{" +
+                "uid='" + uid + '\'' +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
+                ", isServiceable=" + isServiceable +
+                ", dimensionList=" + dimensionList +
+                ", typeOfDimension=" + typeOfDimension +
+                '}';
     }
 }

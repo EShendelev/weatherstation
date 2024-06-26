@@ -21,8 +21,8 @@ public class MeteostationImpl implements Meteostation {
     }
 
     @Override
-    public void addRadar(String name, String prefix, double latitude, double longitude, TypeOfDimension typeOfDimension) {
-        radarManager.addRadar(name, prefix, latitude, longitude, typeOfDimension);
+    public void addRadar(String prefix, double latitude, double longitude, TypeOfDimension typeOfDimension) {
+        radarManager.addRadar(prefix, latitude, longitude, typeOfDimension);
     }
 
     @Override
