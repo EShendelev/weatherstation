@@ -3,6 +3,7 @@ package main.java.org.weatherstation.meteostation.service.implement;
 import main.java.org.weatherstation.dimension.model.Dimension;
 import main.java.org.weatherstation.dimension.model.TypeOfDimension;
 import main.java.org.weatherstation.forecast.model.Forecast;
+import main.java.org.weatherstation.forecast.model.ForecastManager;
 import main.java.org.weatherstation.meteostation.service.interfaces.Meteostation;
 import main.java.org.weatherstation.radar.model.Radar;
 
@@ -14,10 +15,12 @@ import java.util.List;
 public class MeteostationImpl implements Meteostation {
 
     private final RadarManager radarManager;
+    private final ForecastManager forecastManager;
 
 
     public MeteostationImpl() {
         this.radarManager = new RadarManager();
+        this.forecastManager = new ForecastManager();
     }
 
     @Override
@@ -37,7 +40,7 @@ public class MeteostationImpl implements Meteostation {
 
     @Override
     public Forecast getForecast(LocalDate date) {
-        return null;
+        return forecastManager.getForecast(date);
     }
 
     @Override

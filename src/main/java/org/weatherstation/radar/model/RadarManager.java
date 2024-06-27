@@ -3,8 +3,10 @@ package main.java.org.weatherstation.radar.model;
 import main.java.org.weatherstation.dimension.model.Dimension;
 import main.java.org.weatherstation.dimension.model.TypeOfDimension;
 import main.java.org.weatherstation.radar.exceptions.AlreadyExistRadarException;
+import main.java.org.weatherstation.radar.exceptions.NotExistRadarException;
 import main.java.org.weatherstation.radar.exceptions.NotServiceableRadarException;
 import main.java.org.weatherstation.radar.service.util.RadarMaker;
+import main.java.org.weatherstation.radar.storage.RadarStorage;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -50,6 +52,9 @@ public class RadarManager {
     }
 
     public void markRadarAsFault(String uid) {
+        if (!radarList.containsKey(uid)) {
+            throw new NotExistRadarException("Radar " + uid + " not exist");
+        }
         Radar radar = radarList.get(uid);
         radar.setServiceable(false);
         faultyRadarIds.add(uid);

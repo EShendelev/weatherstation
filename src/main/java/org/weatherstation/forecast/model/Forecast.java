@@ -17,4 +17,18 @@ public class Forecast {
         this.wind = wind;
         this.isAccurate = isAccurate;
     }
+
+    @Override
+    public String toString() {
+        return "Forecast{" +
+                "temperature=" + temperature +
+                ", humidity=" + humidity +
+                ", wind=" + wind +
+                ", isAccurate=" + isAccurate +
+                '}';
+    }
+
+    public boolean isAccurate() {
+        return isAccurate;
+    }
 }

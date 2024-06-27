@@ -56,7 +56,7 @@ public abstract class Radar {
     }
 
     private Boolean determinateIsAccurate(LocalDate date) {
-        Boolean res = false;
+        Boolean res = true;
         for (int i = 0; i <= 5; i++) {
             List<Dimension> dimensionsForDay = dimensionList.get(date.minusDays(i));
             if (dimensionsForDay.isEmpty()) {

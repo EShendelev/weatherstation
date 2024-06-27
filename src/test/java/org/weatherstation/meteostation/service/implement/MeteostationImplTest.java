@@ -1,6 +1,7 @@
 package test.java.org.weatherstation.meteostation.service.implement;
 
 import main.java.org.weatherstation.dimension.model.Dimension;
+import main.java.org.weatherstation.forecast.model.Forecast;
 import main.java.org.weatherstation.meteostation.service.implement.MeteostationImpl;
 import main.java.org.weatherstation.meteostation.service.interfaces.Meteostation;
 import main.java.org.weatherstation.radar.model.Radar;
@@ -19,10 +20,6 @@ class MeteostationImplTest {
 
     private static final Meteostation meteostation = new MeteostationImpl();
 
-//    @BeforeAll
-//    public static void setUp() {
-//        meteostation = new MeteostationImpl();
-//    }
 
     @BeforeAll
     public static void addData() {
@@ -150,31 +147,52 @@ class MeteostationImplTest {
         meteostation.addDimension("Moscow_12", LocalDate.now().minusDays(3), 10);
     }
 
-    @Test
-    void addDimensionTest() {
-       Radar radar = RadarStorage.radarList.get("Chazhemto_1");
-       List<Dimension> radarDimension =  radar.getAllRadarDimension();
-       assertFalse(radarDimension.isEmpty());
-    }
 
     @Test
-    void getAllRadarDimension() {
+    void getAllRadarDimensionTest() {
+        Radar radarChazhemto1 = RadarStorage.radarList.get("Chazhemto_1");
+        Radar radarTomsk5 = RadarStorage.radarList.get("Tomsk_5");
+        Radar radarRnD8 = RadarStorage.radarList.get("Rostov-On-Don_8");
+        assertEquals(8, radarChazhemto1.getAllRadarDimension().size());
+        assertEquals(8, radarTomsk5.getAllRadarDimension().size());
+        assertEquals(8, radarRnD8.getAllRadarDimension().size());
 
     }
 
     @Test
     void getForecast() {
+        meteostation.markRadarAsFault("Moscow_11");
+        meteostation.markRadarAsFault("Rostov-On-Don_9");
+        Forecast forecast = meteostation.getForecast(LocalDate.now());
+        assertFalse(forecast.isAccurate());
+
+        meteostation.markRadarAsServiceable("Moscow_11");
+        meteostation.markRadarAsServiceable("Rostov-On-Don_9");
+        Forecast forecast1 = meteostation.getForecast(LocalDate.now());
+        assertTrue(forecast1.isAccurate());
     }
 
     @Test
-    void markRadarAsFault() {
+    void markRadarAsFaultTest() {
+        meteostation.markRadarAsFault("Moscow_10");
+        
     }
 
     @Test
     void markRadarAsServiceable() {
+        meteostation.markRadarAsFault("Moscow_10");
+        assertFalse(RadarStorage.radarList.get("Moscow_10").isServiceable());
+        meteostation.markRadarAsServiceable("Moscow_10");
+        assertTrue(RadarStorage.radarList.get("Moscow_10").isServiceable());
     }
 
     @Test
     void getAllFaultyRadars() {
+        meteostation.markRadarAsFault("Moscow_10");
+        meteostation.markRadarAsFault("Moscow_12");
+        meteostation.markRadarAsFault("Rostov-On-Don_9");
+        meteostation.markRadarAsFault("Tomsk_4");
+        assertFalse(RadarStorage.faultyRadarIds.isEmpty());
+        assertEquals(4, RadarStorage.faultyRadarIds.size());
     }
 }

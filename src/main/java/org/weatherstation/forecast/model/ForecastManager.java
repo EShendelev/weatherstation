@@ -20,11 +20,11 @@ public class ForecastManager {
     public Forecast getForecast(LocalDate date) {
         flags = new HashSet<>();
         List<Double> windValuesList =
-                getAverageValuesOfRadarsByTypeForForecastWithAccurateFlag(TypeOfDimension.WIND, date);
+                getAverageValuesOfRadarsByTypeForForecast(TypeOfDimension.WIND, date);
         List<Double> temperatureValuesList =
-                getAverageValuesOfRadarsByTypeForForecastWithAccurateFlag(TypeOfDimension.TEMPERATURE, date);
+                getAverageValuesOfRadarsByTypeForForecast(TypeOfDimension.TEMPERATURE, date);
         List<Double> humidityValuesList =
-                getAverageValuesOfRadarsByTypeForForecastWithAccurateFlag(TypeOfDimension.HUMIDITY, date);
+                getAverageValuesOfRadarsByTypeForForecast(TypeOfDimension.HUMIDITY, date);
 
         boolean isAccurate = !flags.contains(false);
         double wind = average(windValuesList);
@@ -33,7 +33,7 @@ public class ForecastManager {
         return new Forecast(temperature, humidity, wind, isAccurate);
     }
 
-    private List<Double> getAverageValuesOfRadarsByTypeForForecastWithAccurateFlag
+    private List<Double> getAverageValuesOfRadarsByTypeForForecast
             (TypeOfDimension typeOfDimension, LocalDate date) {
 
         List<String> radarUids = radarJournalByType.get(typeOfDimension);
@@ -45,6 +45,7 @@ public class ForecastManager {
         for (String uid : radarUids) {
             Radar radar = radarList.get(uid);
             if (!radar.isServiceable()) {
+                accurateFlags.add(false);
                 continue;
             }
             Map<Boolean, Double> averageWithFlag = radar.getAverageValueWithAccurateFlag(date);
