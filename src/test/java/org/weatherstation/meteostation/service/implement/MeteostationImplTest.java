@@ -1,6 +1,5 @@
 package test.java.org.weatherstation.meteostation.service.implement;
 
-import main.java.org.weatherstation.dimension.model.Dimension;
 import main.java.org.weatherstation.forecast.model.Forecast;
 import main.java.org.weatherstation.meteostation.service.implement.MeteostationImpl;
 import main.java.org.weatherstation.meteostation.service.interfaces.Meteostation;
@@ -10,7 +9,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
-import java.util.List;
 
 import static main.java.org.weatherstation.dimension.model.TypeOfDimension.*;
 import static org.junit.jupiter.api.Assertions.*;

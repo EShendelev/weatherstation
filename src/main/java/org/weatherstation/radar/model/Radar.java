@@ -1,15 +1,11 @@
 package main.java.org.weatherstation.radar.model;
 
 
-
 import main.java.org.weatherstation.dimension.model.Dimension;
 import main.java.org.weatherstation.dimension.model.TypeOfDimension;
 
 import java.time.LocalDate;
 import java.util.*;
-
-import main.java.org.weatherstation.radar.exceptions.EmptyDimensionListException;
-import main.java.org.weatherstation.radar.exceptions.NotServiceableRadarException;
 
 public abstract class Radar {
     private String uid;
