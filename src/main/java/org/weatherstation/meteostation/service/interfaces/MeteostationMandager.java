@@ -8,7 +8,12 @@ import main.java.org.weatherstation.radar.model.Radar;
 import java.time.LocalDate;
 import java.util.List;
 
-public interface Meteostation {
+public interface MeteostationMandager {
+
+
+    Radar getRadarById(String uid);
+
+    List<String> getFaultyRadarIdsList(String uid);
 
     void addRadar(String prefix, double latitude, double longitude, TypeOfDimension typeOfDimension);
 

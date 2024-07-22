@@ -4,7 +4,7 @@ import main.java.org.weatherstation.dimension.model.Dimension;
 import main.java.org.weatherstation.dimension.model.TypeOfDimension;
 import main.java.org.weatherstation.forecast.model.Forecast;
 import main.java.org.weatherstation.forecast.model.ForecastManager;
-import main.java.org.weatherstation.meteostation.service.interfaces.Meteostation;
+import main.java.org.weatherstation.meteostation.service.interfaces.MeteostationMandager;
 import main.java.org.weatherstation.radar.model.Radar;
 
 import main.java.org.weatherstation.radar.model.RadarManager;
@@ -12,15 +12,32 @@ import main.java.org.weatherstation.radar.model.RadarManager;
 import java.time.LocalDate;
 import java.util.List;
 
-public class MeteostationImpl implements Meteostation {
+public class MeteostationManagerImpl implements MeteostationMandager {
 
     private final RadarManager radarManager;
     private final ForecastManager forecastManager;
 
-
-    public MeteostationImpl() {
+    public MeteostationManagerImpl() {
         this.radarManager = new RadarManager();
-        this.forecastManager = new ForecastManager();
+        this.forecastManager = new ForecastManager(radarManager);
+    }
+
+    public ForecastManager getForecastManager() {
+        return forecastManager;
+    }
+
+    public RadarManager getRadarManager() {
+        return radarManager;
+    }
+
+    @Override
+    public Radar getRadarById(String uid) {
+        return radarManager.getAllRadars().get(uid);
+    }
+
+    @Override
+    public List<String> getFaultyRadarIdsList(String uid) {
+        return radarManager.getFaultyRadarsIds();
     }
 
     @Override

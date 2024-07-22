@@ -11,11 +11,14 @@ import static main.java.org.weatherstation.dimension.model.TypeOfDimension.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RadarMakerTest {
+    //static  зло
+    //использовать mock'и
     static Radar radar1;
     static Radar radar2;
     static Radar radar3;
     @BeforeAll
     public static void init() {
+
         radar1 = RadarMaker.makeRadar("Chazhemto",
                 58.060231, 82.826753, WIND);
         radar2 = RadarMaker.makeRadar("Chazhemto",

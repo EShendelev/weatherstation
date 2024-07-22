@@ -3,9 +3,8 @@ package main.java.org.weatherstation.forecast.model;
 
 import main.java.org.weatherstation.dimension.model.TypeOfDimension;
 import main.java.org.weatherstation.radar.model.Radar;
+import main.java.org.weatherstation.radar.model.RadarManager;
 
-
-import static main.java.org.weatherstation.radar.storage.RadarStorage.*;
 
 import java.time.LocalDate;
 import java.util.*;
@@ -13,8 +12,14 @@ import java.util.*;
 
 public class ForecastManager {
 
+    //плохая практика
     private Set<Boolean> flags;
+    private final RadarManager radarManager;
+    private static final int MINIMAL_COUNT_OF_RADAR_FOR_FORECAST = 2;
 
+    public ForecastManager(RadarManager radarManager) {
+        this.radarManager = radarManager;
+    }
 
 
     public Forecast getForecast(LocalDate date) {
@@ -27,37 +32,41 @@ public class ForecastManager {
                 getAverageValuesOfRadarsByTypeForForecast(TypeOfDimension.HUMIDITY, date);
 
         boolean isAccurate = !flags.contains(false);
+
         double wind = average(windValuesList);
         double temperature = average(temperatureValuesList);
         double humidity = average(humidityValuesList);
+
         return new Forecast(temperature, humidity, wind, isAccurate);
     }
 
     private List<Double> getAverageValuesOfRadarsByTypeForForecast
             (TypeOfDimension typeOfDimension, LocalDate date) {
 
-        List<String> radarUids = radarJournalByType.get(typeOfDimension);
+        List<String> radarUids = radarManager.getRadarListByType(typeOfDimension);
         boolean flag = true;
 
         Set<Boolean> accurateFlags = new HashSet<>();
         List<Double> averageValuesList = new ArrayList<>();
 
         for (String uid : radarUids) {
-            Radar radar = radarList.get(uid);
+            Radar radar = radarManager.getRadarByUid(uid);
             if (!radar.isServiceable()) {
                 accurateFlags.add(false);
                 continue;
             }
+
             Map<Boolean, Double> averageWithFlag = radar.getAverageValueWithAccurateFlag(date);
             accurateFlags.addAll(averageWithFlag.keySet());
             Double value = averageWithFlag.getOrDefault(true, averageWithFlag.get(false));
             averageValuesList.add(value);
         }
 
-        if (accurateFlags.contains(false) || radarUids.size() < 2) {
+        if (accurateFlags.contains(false) || radarUids.size() < MINIMAL_COUNT_OF_RADAR_FOR_FORECAST) {
             flag = false;
         }
         flags.add(flag);
+
         return new ArrayList<>(averageValuesList);
     }
 
@@ -67,7 +76,6 @@ public class ForecastManager {
         for (double val : valuesList) {
             sum += val;
         }
-
         return sum / listSize;
     }
 }

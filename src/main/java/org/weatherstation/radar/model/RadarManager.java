@@ -14,16 +14,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static main.java.org.weatherstation.radar.storage.RadarStorage.*;
-
 public class RadarManager {
 
+    public final RadarStorage radarStorage = new RadarStorage();
+
+
     public Map<String, Radar> getAllRadars() {
-        return new HashMap<>(radarList);
+        return new HashMap<>(radarStorage.getRadarByIds());
     }
 
     public void makeDimension(String radarUid, LocalDate date, double value) {
-        Radar radar = radarList.get(radarUid);
+        Radar radar = getAllRadars().get(radarUid);
         if (!radar.isServiceable()) {
             throw new NotServiceableRadarException("Radar UID " + radarUid + " not serviceable");
         }
@@ -31,7 +32,7 @@ public class RadarManager {
     }
 
     public List<Dimension> getAllRadarDimension(String radarUid) {
-        Radar radar = radarList.get(radarUid);
+        Radar radar = getAllRadars().get(radarUid);
         if (!radar.isServiceable()) {
             throw new NotServiceableRadarException("Radar UID " + radarUid + " not serviceable");
         }
@@ -41,41 +42,47 @@ public class RadarManager {
 
     public List<Radar> getAllFaultyRadars() {
         List<Radar> radars = new ArrayList<>();
-        for (String s : faultyRadarIds) {
-            radars.add(radarList.get(s));
+        for (String s : getFaultyRadarsIds()) {
+            radars.add(getAllRadars().get(s));
         }
         return radars;
     }
 
     public List<String> getFaultyRadarsIds() {
-        return new ArrayList<>(faultyRadarIds);
+        return radarStorage.getFaultyRadarIds();
     }
 
     public void markRadarAsFault(String uid) {
-        if (!radarList.containsKey(uid)) {
+        if (!getAllRadars().containsKey(uid)) {
             throw new NotExistRadarException("Radar " + uid + " not exist");
         }
-        Radar radar = radarList.get(uid);
+        Radar radar = getAllRadars().get(uid);
         radar.setServiceable(false);
-        faultyRadarIds.add(uid);
+        radarStorage.addFaultyRadarIds(uid);
     }
 
     public void markRadarAsServiceable(String uid) {
-        Radar radar = radarList.get(uid);
+        Radar radar = getAllRadars().get(uid);
         radar.setServiceable(true);
-        faultyRadarIds.remove(uid);
+        radarStorage.removeFaultyRadarIds(uid);
     }
 
 
     public void addRadar(String prefix, double latitude, double longitude, TypeOfDimension typeOfDimension) {
         Radar radar = RadarMaker.makeRadar(prefix, latitude, longitude, typeOfDimension);
         String uid = radar.getUid();
-        if (radarList.containsKey(uid)) {
+        if (getAllRadars().containsKey(uid)) {
             throw new AlreadyExistRadarException("Radar with UID " + uid + " already exists");
         }
-        List<String> uids = radarJournalByType.getOrDefault(typeOfDimension, new ArrayList<>());
-        uids.add(uid);
-        radarList.put(uid, radar);
-        radarJournalByType.put(typeOfDimension, uids);
+        radarStorage.addRadarInJournalByType(typeOfDimension, uid);
+        radarStorage.addRadarByIds(uid, radar);
+    }
+
+    public List<String> getRadarListByType(TypeOfDimension typeOfDimension) {
+        return radarStorage.getRadarJournalByType(typeOfDimension);
+    }
+
+    public Radar getRadarByUid(String uid) {
+        return radarStorage.getRadarByUid(uid);
     }
 }

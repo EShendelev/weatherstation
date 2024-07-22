@@ -13,7 +13,7 @@ public abstract class Radar {
     private double longitude;
     private boolean isServiceable;
     //радар хранит в себе список своих измерений - снести, менеджер хранит записи с радаров
-    private final Map<LocalDate, List<Dimension>> dimensionList;
+    private final Map<LocalDate, List<Dimension>> dimensionsMap;
 
     protected TypeOfDimension typeOfDimension;
 
@@ -22,13 +22,13 @@ public abstract class Radar {
         this.latitude = latitude;
         this.longitude = longitude;
         isServiceable = true;
-        dimensionList = new HashMap<>();
+        dimensionsMap = new HashMap<>();
     }
 
     public List<Dimension> getAllRadarDimension() {
         List<Dimension> dimensions = new ArrayList<>();
-        for (LocalDate date : dimensionList.keySet()) {
-            dimensions.addAll(dimensionList.get(date));
+        for (LocalDate date : dimensionsMap.keySet()) {
+            dimensions.addAll(dimensionsMap.get(date));
         }
 
         dimensions.sort(Comparator.comparing(Dimension::getDate));
@@ -38,10 +38,10 @@ public abstract class Radar {
 
     public void makeDimension(LocalDate date, double value) {
         Dimension dimension = new Dimension(uid, date, value);
-        List<Dimension> dimensions = dimensionList.getOrDefault(date, new ArrayList<>());
-          dimensions.add(dimension);
-          dimensionList.put(date, dimensions);
-                }
+        List<Dimension> dimensions = dimensionsMap.getOrDefault(date, new ArrayList<>());
+        dimensions.add(dimension);
+        dimensionsMap.put(date, dimensions);
+    }
 
     private List<Dimension> getFiveDaysListDimensionForForecast(LocalDate date) {
         List<Dimension> dimensions = new ArrayList<>();
@@ -54,7 +54,7 @@ public abstract class Radar {
     private Boolean determinateIsAccurate(LocalDate date) {
         Boolean res = true;
         for (int i = 0; i <= 5; i++) {
-            List<Dimension> dimensionsForDay = dimensionList.get(date.minusDays(i));
+            List<Dimension> dimensionsForDay = dimensionsMap.get(date.minusDays(i));
             if (dimensionsForDay.isEmpty()) {
                 res = false;
                 break;
@@ -62,6 +62,9 @@ public abstract class Radar {
         }
         return res;
     }
+
+
+    //лучше использовать Pair или, лучше, создать свой класс(!)
 
     public Map<Boolean, Double> getAverageValueWithAccurateFlag(LocalDate date) {
         Map<Boolean, Double> result = new HashMap<>();
@@ -72,13 +75,14 @@ public abstract class Radar {
         for (Dimension dimension : dimensions) {
             sumOfValues += dimension.getValue();
         }
+
         Double averageValue = sumOfValues / countOfValue;
         result.put(isAccurate, averageValue);
         return result;
     }
 
     private List<Dimension> getDimensionListForDay(LocalDate date) {
-        return new ArrayList<>(dimensionList.get(date));
+        return new ArrayList<>(dimensionsMap.get(date));
     }
 
     public String getUid() {
@@ -105,7 +109,7 @@ public abstract class Radar {
                 ", latitude=" + latitude +
                 ", longitude=" + longitude +
                 ", isServiceable=" + isServiceable +
-                ", dimensionList=" + dimensionList +
+                ", dimensionList=" + dimensionsMap +
                 ", typeOfDimension=" + typeOfDimension +
                 '}';
     }
