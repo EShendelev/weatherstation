@@ -8,15 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78e3e78a-682e-4be7-a241-de9c7aa9d9f3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/util/AvgWithAccurateFlag.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/forecast/model/ForecastManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/forecast/model/ForecastManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/meteostation/service/implement/MeteostationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/meteostation/service/implement/MeteostationManagerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/meteostation/service/interfaces/Meteostation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/meteostation/service/interfaces/MeteostationMandager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/model/Radar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/model/Radar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/model/RadarManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/model/RadarManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/storage/RadarStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/storage/RadarStorage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/weatherstation/meteostation/service/implement/MeteostationImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/weatherstation/meteostation/service/implement/MeteostationImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/weatherstation/radar/service/util/RadarMakerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/weatherstation/radar/service/util/RadarMakerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +22,8 @@
       <list>
         <option value="Interface" />
         <option value="Enum" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -50,43 +44,43 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Application.Main.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "JUnit.IdGeneratorTest.generationTest.executor": "Run",
-    "JUnit.MeteostationImplTest.addDimensionTest.executor": "Run",
-    "JUnit.MeteostationImplTest.executor": "Run",
-    "JUnit.MeteostationImplTest.getAllFaultyRadars.executor": "Run",
-    "JUnit.MeteostationImplTest.getAllRadarDimension.executor": "Run",
-    "JUnit.MeteostationImplTest.getForecast.executor": "Debug",
-    "JUnit.MeteostationImplTest.markRadarAsFaultTest.executor": "Run",
-    "JUnit.MeteostationImplTest.markRadarAsServiceable.executor": "Debug",
-    "JUnit.RadarMakerTest.executor": "Run",
-    "JUnit.RadarMakerTest.makeRadar1Test.executor": "Run",
-    "JUnit.RadarMakerTest.radarsNameTest.executor": "Debug",
-    "JUnit.UidGeneratorTest.init.executor": "Run",
-    "JUnit.UidGeneratorTest.test_Uid_1.executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "create.test.in.the.same.root": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/myJava/weatherstation",
-    "onboarding.tips.debug.path": "A:/Java/meteostation/src/main/java/org/meteostation/Main.java",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;JUnit.IdGeneratorTest.generationTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MeteostationImplTest.addDimensionTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MeteostationImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MeteostationImplTest.getAllFaultyRadars.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MeteostationImplTest.getAllRadarDimension.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MeteostationImplTest.getForecast.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.MeteostationImplTest.markRadarAsFaultTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MeteostationImplTest.markRadarAsServiceable.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.RadarMakerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RadarMakerTest.makeRadar1Test.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RadarMakerTest.radarsNameTest.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.UidGeneratorTest.init.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UidGeneratorTest.test_Uid_1.executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/myJava/weatherstation&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;A:/Java/meteostation/src/main/java/org/meteostation/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="A:\Java\meteostation\src\test" />
