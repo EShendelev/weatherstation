@@ -24,12 +24,12 @@ public class ForecastManager {
 
     public Forecast getForecast(LocalDate date) {
 
-        DataForForecast avgWithAccurateFlag = getDataForForecast(date);
+        DataForForecast dataForForecast = getDataForForecast(date);
 
-        double wind = average(avgWithAccurateFlag.getWindAverageList());
-        double temperature = average(avgWithAccurateFlag.getTemperatureAverageList());
-        double humidity = average(avgWithAccurateFlag.getHumidityAverageList());
-        boolean isAccurate = avgWithAccurateFlag.isAccurate();
+        double wind = average(dataForForecast.getWindAverageList());
+        double temperature = average(dataForForecast.getTemperatureAverageList());
+        double humidity = average(dataForForecast.getHumidityAverageList());
+        boolean isAccurate = dataForForecast.isAccurate();
 
         return new Forecast(temperature, humidity, wind, isAccurate);
     }
