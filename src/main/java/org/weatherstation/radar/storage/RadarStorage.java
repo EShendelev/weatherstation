@@ -10,33 +10,29 @@ import java.util.Map;
 
 public class RadarStorage {
 
-    /*
-    Не верно выбрана схема хранения. Можно сделать обычный класс, с методами записи и получения инфомации
-    Сделать обьект общий для всех, но не статик
-     */
 
     /**
      * radarJournalByType - хранит все UID радоров с разделением по типу измерений
      */
     private final Map<TypeOfDimension, List<String>> radarJournalByType = new HashMap<>();
 
-    public Map<String, Radar> getRadarByIds() {
-        return new HashMap<>(radarByIds);
-    }
-
     /**
      * radarList - хранит объекты радаров по UID
      */
     private final Map<String, Radar> radarByIds = new HashMap<>();
 
-    public List<String> getFaultyRadarIds() {
-        return new ArrayList<>(faultyRadarIds);
-    }
-
     /**
      * faultyRadarIds - хранит список UID неисправных радаров
      */
     private final List<String> faultyRadarIds = new ArrayList<>();
+
+    public List<String> getFaultyRadarIds() {
+        return new ArrayList<>(faultyRadarIds);
+    }
+
+    public Map<String, Radar> getRadarByIds() {
+        return new HashMap<>(radarByIds);
+    }
 
     public List<String> getRadarJournalByType(TypeOfDimension typeOfDimension) {
         return radarJournalByType.getOrDefault(typeOfDimension, new ArrayList<>());

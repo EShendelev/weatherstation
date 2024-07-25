@@ -5,9 +5,9 @@ import java.util.List;
 
 public class DataForForecast {
     private boolean isAccurate = true;
-    private List<Double> windAverageList = new ArrayList<>();
-    private List<Double> humidityAverageList = new ArrayList<>();
-    private List<Double> temperatureAverageList = new ArrayList<>();
+    private final List<Double> windAverageList = new ArrayList<>();
+    private final List<Double> humidityAverageList = new ArrayList<>();
+    private final List<Double> temperatureAverageList = new ArrayList<>();
 
     public DataForForecast() {
 
@@ -22,15 +22,15 @@ public class DataForForecast {
     }
 
     public void setWindAverageList(List<Double> windAverageList) {
-        this.windAverageList = windAverageList;
+        this.windAverageList.addAll(windAverageList);
     }
 
     public void setHumidityAverageList(List<Double> humidityAverageList) {
-        this.humidityAverageList = humidityAverageList;
+        this.humidityAverageList.addAll(humidityAverageList);
     }
 
     public void setTemperatureAverageList(List<Double> temperatureAverageList) {
-        this.temperatureAverageList = temperatureAverageList;
+        this.temperatureAverageList.addAll(temperatureAverageList);
     }
 
     public List<Double> getWindAverageList() {

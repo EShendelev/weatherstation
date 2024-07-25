@@ -9,7 +9,7 @@ import main.java.org.weatherstation.util.DataForForecast;
 
 import java.time.LocalDate;
 import java.util.*;
-
+import java.util.function.Consumer;
 
 public class ForecastManager {
 
@@ -38,11 +38,18 @@ public class ForecastManager {
 
     private DataForForecast getDataForForecast
             (LocalDate date) {
-        DataForForecast avgWithAccurateFlag = new DataForForecast();
+        Map<TypeOfDimension, Consumer<List<Double>>> setterByType = new HashMap<>();
+
+        DataForForecast dataForForecast = new DataForForecast();
+        setterByType.put(TypeOfDimension.WIND, dataForForecast::setWindAverageList);
+        setterByType.put(TypeOfDimension.HUMIDITY, dataForForecast::setHumidityAverageList);
+        setterByType.put(TypeOfDimension.TEMPERATURE, dataForForecast::setTemperatureAverageList);
+
         Set<Boolean> accurateFlags = new HashSet<>();
         boolean flag = true;
 
         for (TypeOfDimension typeOfDimension : TypeOfDimension.values()) {
+
             List<String> radarUids = radarManager.getRadarListByType(typeOfDimension);
             List<Double> averageValuesList = new ArrayList<>();
 
@@ -62,19 +69,12 @@ public class ForecastManager {
             if (accurateFlags.contains(false) || radarUids.size() < MINIMAL_COUNT_OF_RADAR_FOR_FORECAST) {
                 flag = false;
             }
-            // при добавлении нового типа измерения, добавить case
-            switch (typeOfDimension) {
-                case WIND:
-                    avgWithAccurateFlag.setWindAverageList(averageValuesList);
-                case HUMIDITY:
-                    avgWithAccurateFlag.setHumidityAverageList(averageValuesList);
-                case TEMPERATURE:
-                    avgWithAccurateFlag.setTemperatureAverageList(averageValuesList);
-            }
-        }
-        avgWithAccurateFlag.setAccurate(flag);
 
-        return avgWithAccurateFlag;
+            setterByType.get(typeOfDimension).accept(averageValuesList);
+        }
+        dataForForecast.setAccurate(flag);
+
+        return dataForForecast;
     }
 
     private double average(List<Double> valuesList) {

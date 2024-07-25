@@ -4,9 +4,9 @@ import main.java.org.weatherstation.forecast.model.Forecast;
 import main.java.org.weatherstation.meteostation.service.implement.MeteostationManagerImpl;
 import main.java.org.weatherstation.meteostation.service.interfaces.MeteostationMandager;
 import main.java.org.weatherstation.radar.model.Radar;
-import main.java.org.weatherstation.radar.storage.RadarStorage;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
 
 import java.time.LocalDate;
 
@@ -14,7 +14,7 @@ import static main.java.org.weatherstation.dimension.model.TypeOfDimension.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-class MeteostationImplTest {
+class __MeteostationImplTest {
 
     private static final MeteostationMandager meteostationManager = new MeteostationManagerImpl();
 

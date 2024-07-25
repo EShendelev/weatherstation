@@ -22,14 +22,6 @@ public class MeteostationManagerImpl implements MeteostationMandager {
         this.forecastManager = new ForecastManager(radarManager);
     }
 
-    public ForecastManager getForecastManager() {
-        return forecastManager;
-    }
-
-    public RadarManager getRadarManager() {
-        return radarManager;
-    }
-
     @Override
     public Radar getRadarById(String uid) {
         return radarManager.getAllRadars().get(uid);
