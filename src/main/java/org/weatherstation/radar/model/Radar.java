@@ -12,7 +12,6 @@ public abstract class Radar {
     private double latitude;
     private double longitude;
     private boolean isServiceable;
-    //радар хранит в себе список своих измерений - снести, менеджер хранит записи с радаров
     private final Map<LocalDate, List<Dimension>> dimensionsMap;
 
     protected TypeOfDimension typeOfDimension;
@@ -54,7 +53,7 @@ public abstract class Radar {
     private Boolean determinateIsAccurate(LocalDate date) {
         Boolean res = true;
         for (int i = 0; i <= 5; i++) {
-            List<Dimension> dimensionsForDay = dimensionsMap.get(date.minusDays(i));
+            List<Dimension> dimensionsForDay = dimensionsMap.getOrDefault(date.minusDays(i), new ArrayList<>());
             if (dimensionsForDay.isEmpty()) {
                 res = false;
                 break;
@@ -63,8 +62,6 @@ public abstract class Radar {
         return res;
     }
 
-
-    //лучше использовать Pair или, лучше, создать свой класс(!)
 
     public Map<Boolean, Double> getAverageValueWithAccurateFlag(LocalDate date) {
         Map<Boolean, Double> result = new HashMap<>();
@@ -82,7 +79,7 @@ public abstract class Radar {
     }
 
     private List<Dimension> getDimensionListForDay(LocalDate date) {
-        return new ArrayList<>(dimensionsMap.get(date));
+        return new ArrayList<>(dimensionsMap.getOrDefault(date, new ArrayList<>()));
     }
 
     public String getUid() {

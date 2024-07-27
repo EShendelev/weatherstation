@@ -18,6 +18,18 @@ public class Forecast {
         this.isAccurate = isAccurate;
     }
 
+    public double getTemperature() {
+        return temperature;
+    }
+
+    public double getHumidity() {
+        return humidity;
+    }
+
+    public double getWind() {
+        return wind;
+    }
+
     @Override
     public String toString() {
         return "Forecast{" +

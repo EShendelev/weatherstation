@@ -24,7 +24,7 @@ public class MeteostationManagerImpl implements MeteostationMandager {
 
     @Override
     public Radar getRadarById(String uid) {
-        return radarManager.getAllRadars().get(uid);
+        return radarManager.getRadarByUid(uid);
     }
 
     @Override

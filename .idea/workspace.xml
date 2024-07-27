@@ -8,16 +8,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78e3e78a-682e-4be7-a241-de9c7aa9d9f3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/mockito_core_2_21_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/weatherstation/forecast/model/ForecastManagerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/weatherstation/radar/model/RadarManagerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/forecast/model/Forecast.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/forecast/model/Forecast.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/forecast/model/ForecastManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/forecast/model/ForecastManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/meteostation/service/implement/MeteostationManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/meteostation/service/implement/MeteostationManagerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/model/Radar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/model/Radar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/model/RadarManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/model/RadarManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/service/util/RadarMaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/service/util/RadarMaker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/service/util/UidGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/service/util/UidGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/storage/RadarStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/radar/storage/RadarStorage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/weatherstation/util/DataForForecast.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/weatherstation/util/DataForForecast.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/weatherstation/meteostation/service/implement/MeteostationImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/weatherstation/meteostation/service/implement/__MeteostationImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weatherstation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/weatherstation.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/weatherstation/forecast/model/ForecastManagerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/weatherstation/meteostation/service/implement/__MeteostationImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/weatherstation/meteostation/service/implement/MeteostationManagerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/weatherstation/radar/service/util/RadarMakerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/weatherstation/radar/service/util/RadarMakerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/weatherstation/radar/service/util/UidGeneratorTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,11 +67,20 @@
     "JUnit.MeteostationImplTest.getForecast.executor": "Debug",
     "JUnit.MeteostationImplTest.markRadarAsFaultTest.executor": "Run",
     "JUnit.MeteostationImplTest.markRadarAsServiceable.executor": "Debug",
+    "JUnit.MeteostationManagerTest.executor": "Run",
+    "JUnit.MeteostationManagerTest.expectedExceptionCreateTest.executor": "Run",
+    "JUnit.MeteostationManagerTest.getAllRadarDimensionTest.executor": "Run",
+    "JUnit.MeteostationManagerTest.getForecastTest.executor": "Run",
+    "JUnit.MeteostationManagerTest.getForecastTestWithFaultRadars.executor": "Run",
+    "JUnit.MeteostationManagerTest.getForecastWithNotEnoughCountDimension.executor": "Run",
     "JUnit.RadarMakerTest.executor": "Run",
+    "JUnit.RadarMakerTest.expectedExceptionCreateTest.executor": "Run",
     "JUnit.RadarMakerTest.makeRadar1Test.executor": "Run",
     "JUnit.RadarMakerTest.radarsNameTest.executor": "Debug",
+    "JUnit.RadarMakerTest.test.executor": "Run",
     "JUnit.UidGeneratorTest.init.executor": "Run",
     "JUnit.UidGeneratorTest.test_Uid_1.executor": "Run",
+    "JUnit.test.java.org.weatherstation in weatherstation.executor": "Coverage",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
@@ -85,7 +97,13 @@
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default"
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "inlay.hints"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "JAVA"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
@@ -96,18 +114,18 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="test.java.org.weatherstation.dimension.model" />
       <recent name="test.java.org.weatherstation.forecast.model" />
       <recent name="test.java.org.weatherstation.radar.model" />
       <recent name="test.java.org.weatherstation.meteostation.service.implement" />
       <recent name="test.java.org.weatherstation.radar.service.util" />
-      <recent name="test.java.org.weatherstation.dimension.service.util" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="main.java.org.weatherstation.radar.exceptions" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.__MeteostationImplTest">
-    <configuration name="__MeteostationImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.MeteostationManagerTest.expectedExceptionCreateTest">
+    <configuration name="MeteostationManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="weatherstation" />
       <extension name="coverage">
         <pattern>
@@ -116,13 +134,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="test.java.org.weatherstation.meteostation.service.implement" />
-      <option name="MAIN_CLASS_NAME" value="test.java.org.weatherstation.meteostation.service.implement.__MeteostationImplTest" />
+      <option name="MAIN_CLASS_NAME" value="test.java.org.weatherstation.meteostation.service.implement.MeteostationManagerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="__MeteostationImplTest.getAllFaultyRadars" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MeteostationManagerTest.expectedExceptionCreateTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="weatherstation" />
       <extension name="coverage">
         <pattern>
@@ -131,14 +149,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="test.java.org.weatherstation.meteostation.service.implement" />
-      <option name="MAIN_CLASS_NAME" value="test.java.org.weatherstation.meteostation.service.implement.__MeteostationImplTest" />
-      <option name="METHOD_NAME" value="getAllFaultyRadars" />
+      <option name="MAIN_CLASS_NAME" value="test.java.org.weatherstation.meteostation.service.implement.MeteostationManagerTest" />
+      <option name="METHOD_NAME" value="expectedExceptionCreateTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="__MeteostationImplTest.getForecast" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MeteostationManagerTest.getForecastTestWithFaultRadars" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="weatherstation" />
       <extension name="coverage">
         <pattern>
@@ -147,14 +165,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="test.java.org.weatherstation.meteostation.service.implement" />
-      <option name="MAIN_CLASS_NAME" value="test.java.org.weatherstation.meteostation.service.implement.__MeteostationImplTest" />
-      <option name="METHOD_NAME" value="getForecast" />
+      <option name="MAIN_CLASS_NAME" value="test.java.org.weatherstation.meteostation.service.implement.MeteostationManagerTest" />
+      <option name="METHOD_NAME" value="getForecastTestWithFaultRadars" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="__MeteostationImplTest.markRadarAsFaultTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MeteostationManagerTest.getForecastWithNotEnoughCountDimension" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="weatherstation" />
       <extension name="coverage">
         <pattern>
@@ -163,36 +181,34 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="test.java.org.weatherstation.meteostation.service.implement" />
-      <option name="MAIN_CLASS_NAME" value="test.java.org.weatherstation.meteostation.service.implement.__MeteostationImplTest" />
-      <option name="METHOD_NAME" value="markRadarAsFaultTest" />
+      <option name="MAIN_CLASS_NAME" value="test.java.org.weatherstation.meteostation.service.implement.MeteostationManagerTest" />
+      <option name="METHOD_NAME" value="getForecastWithNotEnoughCountDimension" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="__MeteostationImplTest.markRadarAsServiceable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="test.java.org.weatherstation in weatherstation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="weatherstation" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="test.java.org.weatherstation.meteostation.service.implement.*" />
+          <option name="PATTERN" value="test.java.org.weatherstation.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="test.java.org.weatherstation.meteostation.service.implement" />
-      <option name="MAIN_CLASS_NAME" value="test.java.org.weatherstation.meteostation.service.implement.__MeteostationImplTest" />
-      <option name="METHOD_NAME" value="markRadarAsServiceable" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="test.java.org.weatherstation" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.__MeteostationImplTest" />
-        <item itemvalue="JUnit.__MeteostationImplTest.markRadarAsFaultTest" />
-        <item itemvalue="JUnit.__MeteostationImplTest.getForecast" />
-        <item itemvalue="JUnit.__MeteostationImplTest.getAllFaultyRadars" />
-        <item itemvalue="JUnit.__MeteostationImplTest.markRadarAsServiceable" />
+        <item itemvalue="JUnit.MeteostationManagerTest.expectedExceptionCreateTest" />
+        <item itemvalue="JUnit.MeteostationManagerTest.getForecastTestWithFaultRadars" />
+        <item itemvalue="JUnit.test.java.org.weatherstation in weatherstation" />
+        <item itemvalue="JUnit.MeteostationManagerTest" />
+        <item itemvalue="JUnit.MeteostationManagerTest.getForecastWithNotEnoughCountDimension" />
       </list>
     </recent_temporary>
   </component>
@@ -209,5 +225,20 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="12" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/weatherstation$test_java_org_weatherstation_in_weatherstation.ic" NAME="test.java.org.weatherstation in weatherstation Coverage Results" MODIFIED="1722110642837" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>test.java.org.weatherstation.*</FILTER>
+    </SUITE>
   </component>
 </project>

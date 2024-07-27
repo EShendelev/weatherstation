@@ -15,7 +15,6 @@ public class ForecastManager {
 
     private final RadarManager radarManager;
     private static final int MINIMAL_COUNT_OF_RADAR_FOR_FORECAST = 2;
-    private static final int COUNT_OF_PARAMETER = 3;
 
     public ForecastManager(RadarManager radarManager) {
         this.radarManager = radarManager;

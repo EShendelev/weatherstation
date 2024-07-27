@@ -3,57 +3,35 @@ package test.java.org.weatherstation.radar.service.util;
 import main.java.org.weatherstation.dimension.model.TypeOfDimension;
 import main.java.org.weatherstation.radar.model.Radar;
 import main.java.org.weatherstation.radar.service.util.RadarMaker;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static main.java.org.weatherstation.dimension.model.TypeOfDimension.*;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class RadarMakerTest {
-    //static  зло
-    //использовать mock'и
-    static Radar radar1;
-    static Radar radar2;
-    static Radar radar3;
-    @BeforeAll
-    public static void init() {
 
-        radar1 = RadarMaker.makeRadar("Chazhemto",
+    RadarMaker radarMaker = new RadarMaker();
+
+    @Test
+    public void createRadarTest() {
+        Radar radar1 = radarMaker.makeRadar("Chazhemto",
                 58.060231, 82.826753, WIND);
-        radar2 = RadarMaker.makeRadar("Chazhemto",
+        Radar radar2 = radarMaker.makeRadar("Chazhemto",
                 58.060231, 82.826753, TEMPERATURE);
-        radar3 = RadarMaker.makeRadar("Chazhemto",
+        Radar radar3 = radarMaker.makeRadar("Chazhemto",
                 58.060231, 82.826753, HUMIDITY);
-    }
-
-    @Test
-    public void radar1UidTest() {
         assertEquals("Chazhemto_1", radar1.getUid());
-    }
-
-    @Test
-    public void radar2UidTest() {
         assertEquals("Chazhemto_2", radar2.getUid());
-    }
-
-    @Test
-    public void radar3UidTest() {
         assertEquals("Chazhemto_3", radar3.getUid());
-    }
-
-    @Test
-    public void radar1TypeTest() {
         assertEquals(WIND, radar1.getDimensionType());
-    }
-
-    @Test
-    public void radar2TypeTest() {
         assertEquals(TEMPERATURE, radar2.getDimensionType());
+        assertEquals(HUMIDITY, radar3.getDimensionType());
     }
 
     @Test
-    public void radar3TypeTest() {
-        assertEquals(HUMIDITY, radar3.getDimensionType());
+    public void expectedExceptionCreateTest() {
+        assertThrows(IllegalArgumentException.class, () -> radarMaker.makeRadar("Chazhemto",58.060231,
+                82.826753, TypeOfDimension.valueOf("SOME_TYPE")));
     }
 }

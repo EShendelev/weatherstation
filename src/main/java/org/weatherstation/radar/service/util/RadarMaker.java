@@ -6,12 +6,12 @@ import main.java.org.weatherstation.radar.model.Radar;
 import main.java.org.weatherstation.radar.model.TemperatureRadar;
 import main.java.org.weatherstation.radar.model.WindRadar;
 
-import static main.java.org.weatherstation.radar.service.util.UidGenerator.getUid;
-
 public class RadarMaker {
 
-    public static Radar makeRadar(String prefix, double latitude, double longitude, TypeOfDimension typeOfDimension) {
-        String uid = getUid(prefix);
+    private final UidGenerator uidGenerator = new UidGenerator();
+
+    public Radar makeRadar(String prefix, double latitude, double longitude, TypeOfDimension typeOfDimension) {
+        String uid = uidGenerator.getUid(prefix);
         Radar radar;
         switch (typeOfDimension) {
             case TEMPERATURE:

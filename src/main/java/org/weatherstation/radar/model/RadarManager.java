@@ -17,10 +17,15 @@ import java.util.Map;
 public class RadarManager {
 
     public final RadarStorage radarStorage = new RadarStorage();
+    public final RadarMaker radarMaker = new RadarMaker();
 
 
     public Map<String, Radar> getAllRadars() {
         return new HashMap<>(radarStorage.getRadarByIds());
+    }
+
+    public Radar getRadarByUid(String uid) {
+        return radarStorage.getRadarByUid(uid);
     }
 
     public void makeDimension(String radarUid, LocalDate date, double value) {
@@ -69,7 +74,7 @@ public class RadarManager {
 
 
     public void addRadar(String prefix, double latitude, double longitude, TypeOfDimension typeOfDimension) {
-        Radar radar = RadarMaker.makeRadar(prefix, latitude, longitude, typeOfDimension);
+        Radar radar = radarMaker.makeRadar(prefix, latitude, longitude, typeOfDimension);
         String uid = radar.getUid();
         if (getAllRadars().containsKey(uid)) {
             throw new AlreadyExistRadarException("Radar with UID " + uid + " already exists");
@@ -80,9 +85,5 @@ public class RadarManager {
 
     public List<String> getRadarListByType(TypeOfDimension typeOfDimension) {
         return radarStorage.getRadarJournalByType(typeOfDimension);
-    }
-
-    public Radar getRadarByUid(String uid) {
-        return radarStorage.getRadarByUid(uid);
     }
 }
