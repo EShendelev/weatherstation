@@ -9,14 +9,5 @@ import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(LocalDateTime.now());
-        System.out.println("----<>----");
-        System.out.println(LocalDate.now());
-
-
-        List<String> list = new ArrayList<>();
-        list.contains(" ");
-        Map<Integer, Integer> map = new HashMap<>();
-        System.out.println(map.getOrDefault(1, 9292));
     }
 }

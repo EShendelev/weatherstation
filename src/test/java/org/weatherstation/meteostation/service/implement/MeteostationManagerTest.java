@@ -5,6 +5,7 @@ import main.java.org.weatherstation.forecast.model.Forecast;
 import main.java.org.weatherstation.meteostation.service.implement.MeteostationManagerImpl;
 import main.java.org.weatherstation.meteostation.service.interfaces.MeteostationMandager;
 import main.java.org.weatherstation.radar.exceptions.NotExistRadarException;
+import main.java.org.weatherstation.radar.exceptions.NotServiceableRadarException;
 import main.java.org.weatherstation.radar.model.Radar;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -210,5 +211,14 @@ class MeteostationManagerTest {
         meteostationManager.markRadarAsFault("Tomsk_4");
         assertFalse(meteostationManager.getAllFaultyRadars().isEmpty());
         assertEquals(4, meteostationManager.getAllFaultyRadars().size());
+        assertFalse(meteostationManager.getRadarById("Moscow_10").isServiceable());
+        assertFalse(meteostationManager.getRadarById("Rostov-On-Don_9").isServiceable());
+    }
+
+    @Test
+    void addDimensionWithFaultRadar() {
+        meteostationManager.markRadarAsFault("Moscow_10");
+        assertThrows(NotServiceableRadarException.class, () -> meteostationManager.addDimension("Moscow_10",
+                DATE_FOR_TEST.minusDays(3), 100));
     }
 }
